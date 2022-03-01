@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  ss-backend:
+    container_name: ss-backend
+    image: startsomething/ss-backend
+    build:
+      dockerfile: Dockerfile
+      context: ss-backend
+    ports:
+      - "3000:3000"
+  ss-frontend:
+    container_name: ss-frontend
+    image: startsomething/ss-frontend
+    build:
+      dockerfile: Dockerfile
+      context: ss-frontend
+    depends_on:
+      - ss-backend
+    ports:
+      - "3010:3010"
+  ss-cms:
+    container_name: ss-cms
+    image: startsomething/ss-cms
+    build:
+      dockerfile: Dockerfile
+      context: ss-cms
+    depends_on:
+      - ss-backend
+    ports:
+      - "8080:8080"

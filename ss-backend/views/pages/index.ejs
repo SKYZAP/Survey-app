@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h3>Find All Survey</h3>
+    <p><code>GET http://localhost:3000/api/survey</code></p>
+    <span></span>
+    <h3>Find One Survey</h3>
+    <p><code>GET http://localhost:3000/api/survey/:id</code><br> <b>Required Parameters:</b> id</p>
+    <span></span>
+    <h3>Create Survey</h3>
+    <p><code>POST http://localhost:3000/api/survey/create</code><br> <b>Required Body:</b> {question:[ ], response:[ ], name:" "}</p>
+    <span></span>
+    <h3>Delete Survey</h3>
+    <p><code>DELETE http://localhost:3000/api/survey/:id</code><br> <b>Required Parameters:</b> id</p>
+    <span></span>
+    <h3>Update Survey</h3>
+    <p><code>PUT http://localhost:3000/api/survey/update/:id</code><br> <b>Required Parameters:</b> id <br> <b>Required Body:</b> question:[ ] OR response:[ ] </p>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

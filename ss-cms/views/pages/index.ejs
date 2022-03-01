@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<script>
+  window.onload = async () => {
+    
+    const fetchData = async () => {
+      const res = await fetch("http://localhost:3000/api/survey")
+      const body = await res.json()
+      return body
+    }
+    const results = await fetchData()
+
+    const elements = results.map((value)=>{ return $("<tr> </tr>").append(`<td>${value._id}</td><td>${value.question}</td><td>${value.response}</td><td>${value.name}</td>`)})
+    for (let i=0;i<results.length;i++){
+
+    }
+   
+    $("#dataView tbody").append(elements)
+  }
+</script>
+<body class="container">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand nav-fill w-100" href="/">Survey CMS</a>
+</nav>  
+
+<div class="container">       
+  <main>
+    <div class="jumbotron">
+      <table id="dataView" class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Questions</th>
+            <th>Responses</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  
+</div>
+
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
